@@ -27,15 +27,18 @@ export default function App() {
       {showState ? (
         <>
       
-        <TextInput style = {styles.text} onChangeText={textInput => setName(textInput)} placeholder  = 'HoTen:'/>
-        <TextInput style = {styles.text} onChangeText={textInput => setDSC(textInput)} placeholder  = 'DSC:'/>
-        <TextInput style = {styles.text} onChangeText={textInput => setLink(textInput)} placeholder  = 'linkAnh:'/>
+        <TextInput style = {styles.text1} onChangeText={textInput => setName(textInput)} placeholder  = 'HoTen:'/>
+        <TextInput style = {styles.text1} onChangeText={textInput => setDSC(textInput)} placeholder  = 'DSC:'/>
+        <TextInput style = {styles.text1} onChangeText={textInput => setLink(textInput)} placeholder  = 'linkAnh:'/>
+        <View style = {{flexDirection:"row"}}>
         <Button title='Hủy'
         onPress={() => changeshowState(!showState)}/>
         <Button
         title='Thêm'
         onPress={addItem}
         />
+        </View>
+        
  
        
         </>
@@ -45,11 +48,11 @@ export default function App() {
         data={items}
         renderItem={({ item }) => (
           <>
-          <View>
+          <View style = {{flexDirection:"row"}}>
           <Image style = {styles.imagee} source={{uri: item.link}}/>
-          <View>
-          <Text style = {styles.text}>Tên: {item.name}</Text>
-          <Text style = {styles.text}>DSC: {item.DSC}</Text>
+          <View style = {styles.text}>
+          <Text>Tên: {item.name}</Text>
+          <Text>DSC: {item.DSC}</Text>
           </View>
           </View>
           
@@ -76,8 +79,17 @@ const styles = StyleSheet.create({
     height:100,
     borderRadius:10,
   },text:{
+    marginTop:30,
     fontSize:20,
     color:'#000',
+    fontWeight:'bold',
+  },text1:{
+    width:400,
+    height:70,
+    borderWidth:1,
+    marginTop:10,
+    fontSize:20,
+    color:'#f9f',
     fontWeight:'bold',
   }
 });
